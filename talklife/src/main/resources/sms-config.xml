@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sms-con Uid="suliangbo2010@163.com" Key="f6f714f1279d114cc70e">
+	<template id="RL_S_01" type="Register" desc="用户注册">
+		<value>
+			尊敬的客户，#CODE#为你本次注册的验证码，十分钟内有效，请及时填写！
+		</value>
+	</template>
+	<template id="RL_S_02" type="ChangePwd" desc="口令修改">
+		<value>
+			尊敬的客户，#CODE#为你本次修改口令的验证码，十分钟内有效，请及时填写！
+		</value>
+	</template>
+</sms-con>

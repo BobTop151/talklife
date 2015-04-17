@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.talklife.common.IDao.IdentifyCodeMapper">
+
+
+	<sql id="Base_Column_List">
+		codeid, phonenum, code
+	</sql>
+
+	<insert id="saveIdentifyCode" parameterType="com.talklife.common.pojo.IdentifyCode">
+		insert into
+		t_identifycode_info(codeid,phonenum,code,type,createtime,dr)
+		values(#{codeid},#{phonenum},#{code},#{type},#{createtime},#{dr})
+	</insert>
+
+	<update id="updateIdentifyCode" parameterType="com.talklife.common.pojo.IdentifyCode">
+		update
+		t_identifycode_info set code = #{code}, createtime = #{createtime}
+		where phonenum = #{phonenum} and type=#{type}
+	</update>
+
+	<select id="countCode" parameterType="com.talklife.common.pojo.IdentifyCode"
+		resultType="int">
+		select count(phonenum) from t_identifycode_info where
+		phonenum = #{phonenum} and
+		type=#{type}
+	</select>
+
+	<select id="checkCode" parameterType="com.talklife.common.pojo.IdentifyCode"
+		resultType="String">
+		select dr from t_identifycode_info where phonenum =
+		#{phonenum} and
+		code=#{code} and
+		type=#{type} and
+		FLOOR(to_number(to_date(#{createtime},'yyyy-mm-dd
+		hh24:mi:ss')-to_date(createtime,'yyyy-mm-dd hh24:mi:ss'))*24*60)&lt;=10
+	</select>
+
+
+</mapper>

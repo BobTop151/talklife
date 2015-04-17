@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.talklife.user.IDao.UserMapper">
+	<resultMap id="BaseResultMap" type="com.talklife.user.pojo.User">
+		<id column="userid" property="userid" jdbcType="VARCHAR" />
+		<result column="loginid" property="loginid" jdbcType="VARCHAR" />
+		<result column="loginpwd" property="loginpwd" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		userid, loginid, loginpwd
+	</sql>
+
+
+	<select id="selectLogin" resultMap="BaseResultMap"
+		parameterType="String">
+		select * from t_user where loginid = #{loginid} and dr = 0
+	</select>
+
+	<insert id="saveUser" parameterType="com.talklife.user.pojo.User">
+		insert into t_user(userid,loginid,dr) values (#{userid},#{loginid},0)
+	</insert>
+	
+	<update id="updateUser" parameterType="com.talklife.user.pojo.User">
+		update t_user set
+	</update>
+</mapper>

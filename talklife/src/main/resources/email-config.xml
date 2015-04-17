@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<email-con username="service@talklife.com.cn" Key="bob_top151"
+	mail.smtp.auth="true" mail.smtp.host="smtp.talklife.com.cn">
+	<template id="RL_E_01" type="Register" subject="用户注册">
+		<url>http://www.talklife.com.cn/user/Register?registerID=#CODE#</url>
+		<value>
+			/WEB-INF/classes/mail/template/Register.html
+		</value>
+	</template>
+	<template id="RL_E_02" type="ChangePwd" subject="口令修改">
+		<value>
+		</value>
+	</template>
+</email-con>
